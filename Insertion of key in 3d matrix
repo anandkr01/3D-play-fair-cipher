@@ -1,0 +1,55 @@
+#include<stdio.h>
+int array3d[7][6][6];
+int main()
+{   
+	int n;
+	printf("enter the length of key");
+	scanf("%d",&n);
+	char key[n];
+	int array[n];
+	printf("enter key \n");
+	scanf("%s",&key);
+	for(int i=0;i<n;++i)
+	{
+	array[i]=key[i];
+	}
+
+// Insertion of keyword in matrix
+
+	for(int i=0;i<n;++i)
+	{	int hun,tens,ones,temp;
+		hun=array[i]/100;
+		if(hun>5)
+		{
+		hun=hun%5;
+		}
+		ones=array[i]%10;
+		if(ones>6)
+		{
+		ones=ones%6;
+		}
+		temp=array[i]/10;
+		tens=temp%10;
+		if(tens>5)
+		{
+		tens=tens%5;
+		}
+		array3d[ones][tens][hun]=array[i];
+	}
+	
+
+//Display Matrix
+	for(int i=0;i<7;++i)
+{
+	for(int j=0;j<6;++j)
+	{
+		for(int k=0;k<6;++k)
+		{
+			printf("%d\t",array3d[i][j][k]);
+		
+		}
+			printf("\n");
+	}
+		printf("\n");
+}
+}
